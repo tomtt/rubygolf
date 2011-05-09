@@ -1,4 +1,6 @@
 class Golf
+  
+  
   def self.hole1(a)
     a.inject(1) { |b,c| b * c }
   end
@@ -26,4 +28,19 @@ class Golf
       end
     end
   end
+  
+  def self.hole5(a)
+    s1(a) + ss(a, 2) + ss(a, 3) + ss(a, 4)
+  end
+  
+  def self.s1(a)
+    a.map { |e| [e] }
+  end
+
+  def self.ss(a, n)
+    r = []
+    (5 - n).times { |i| r << a[i,n] }
+    r
+  end
+
 end
