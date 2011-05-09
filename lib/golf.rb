@@ -43,4 +43,20 @@ class Golf
     r
   end
 
+  def self.hole6(n)
+    r = []
+    n.times { |i| r << i + 1 }
+    r.map do |e|
+      if e % 15 == 0
+        "fizzbuzz"
+      elsif e % 5 == 0
+        "buzz"
+      elsif e % 3 == 0
+        "fizz"
+      else
+        e
+      end
+    end
+  end
+
 end
