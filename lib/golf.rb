@@ -14,4 +14,16 @@ class Golf
       1
     end
   end
+  
+  def self.hole4(a)
+    a.map do |e| e =~ /(.*)\((.*)\)/
+      if $1 == "man"
+        "hat(#{e})"
+      elsif $1 == "dog"
+        e.sub(')', '(bone))')
+      else
+        "dead(#{$2})"
+      end
+    end
+  end
 end
