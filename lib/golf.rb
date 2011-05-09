@@ -59,4 +59,34 @@ class Golf
     end
   end
 
+  def self.hole7(a)
+    f = 0
+    l = 0
+    r = []
+    (a.size - 1).times do |i|
+      if a[i] - 1 == a[l]
+        l += 1
+      else
+        if f == l
+          r << a[i]
+        else
+          f = a[i]
+          l = a[i]
+          r << "#{a[f]}-#{a[l]}"
+        end
+      end
+    end
+  end
+  
+  def self.hole8(n, a = [])
+    if n == a.size - 1
+      a
+    else
+      if a.size < 2
+        [1, 1]
+      else
+        hole8(n, a + [a[-2] + a[-1]])
+      end
+    end
+  end
 end
