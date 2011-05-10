@@ -77,16 +77,12 @@ class Golf
       end
     end
   end
-  
-  def self.hole8(n, a = [])
-    if n == a.size - 1
-      a
-    else
-      if a.size < 2
-        [1, 1]
-      else
-        hole8(n, a + [a[-2] + a[-1]])
-      end
+
+  def self.hole8(n)
+    a = [1, 1]
+    (n - 2).times do
+      a << (a[-2] + a[-1])
     end
+    a
   end
 end
