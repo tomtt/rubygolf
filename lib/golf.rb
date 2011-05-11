@@ -1,14 +1,14 @@
 class Golf
-  
-  
+
+
   def self.hole1(a)
     a.inject(1) { |b,c| b * c }
   end
-  
+
   def self.hole2(s)
     s.split.sort_by { |w| w[1] }.join ' '
   end
-  
+
   def self.hole3(n)
     if n > 0
       n * hole3(n - 1)
@@ -16,7 +16,7 @@ class Golf
       1
     end
   end
-  
+
   def self.hole4(a)
     a.map do |e| e =~ /(.*)\((.*)\)/
       if $1 == "man"
@@ -28,11 +28,11 @@ class Golf
       end
     end
   end
-  
+
   def self.hole5(a)
     s1(a) + ss(a, 2) + ss(a, 3) + ss(a, 4)
   end
-  
+
   def self.s1(a)
     a.map { |e| [e] }
   end
@@ -60,22 +60,22 @@ class Golf
   end
 
   def self.hole7(a)
-    f = 0
-    l = 0
+    a << 999
     r = []
-    (a.size - 1).times do |i|
-      if a[i] - 1 == a[l]
-        l += 1
+    f = l = a.shift
+    a.each do |e|
+      if e - 1 == l
+        l = e
       else
         if f == l
-          r << a[i]
+          r << f.to_s
         else
-          f = a[i]
-          l = a[i]
-          r << "#{a[f]}-#{a[l]}"
+          r << "#{f}-#{l}"
         end
+        f = l = e
       end
     end
+    r
   end
 
   def self.hole8(n)
